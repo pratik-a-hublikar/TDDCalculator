@@ -18,7 +18,14 @@ public class StringCalculator {
         if(StringUtils.isEmpty(numbers)){
             return finalAddition;
         }
-        String regex=",|\n";
+        String regex;
+        if(numbers.startsWith("//")){
+            String[] split = numbers.split("\n");
+            regex=split[0].substring(2);
+            numbers=split[1];
+        }else{
+            regex=",|\n";
+        }
         String[] numberList = numbers.split(regex);
         for(String number:numberList){
             finalAddition+=Integer.parseInt(number);
