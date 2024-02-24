@@ -18,7 +18,7 @@ public class StringCalculator {
         if(StringUtils.isEmpty(numbers)){
             return finalAddition;
         }
-        String regex=",";
+        String regex=",|\n";
         String[] numberList = numbers.split(regex);
         for(String number:numberList){
             finalAddition+=Integer.parseInt(number);
